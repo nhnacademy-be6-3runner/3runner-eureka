@@ -6,18 +6,7 @@ services:
     ports:
       - "8761:8080"
     networks:
-      - app-network
-
-#  nginx:
-#    image: nginx:latest
-#    ports:
-#      - "80:80"
-#    volumes:
-#      - ./nginx.conf:/etc/nginx/nginx.conf
-#    networks:
-#      - app-network
-#    depends_on:
-#      - eureka
+      - back-network
 
 networks:
-  app-network:
+  back-network:

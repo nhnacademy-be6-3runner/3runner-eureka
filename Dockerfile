@@ -1,6 +1,6 @@
 FROM eclipse-temurin:21-jre
 
-WORKDIR /app
+WORKDIR /eureka
 
 COPY target/eureka.jar /eureka/eureka.jar
 
