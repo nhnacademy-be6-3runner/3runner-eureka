@@ -61,6 +61,7 @@ jobs:
        key: ${{ secrets.SSH_KEY }}
        port: ${{ secrets.SSH_PORT }}
        script: |
+         mkdir /home/nhnacademy/eureka
          cd /home/nhnacademy/eureka
          sudo docker-compose pull
          sudo docker-compose down || true
