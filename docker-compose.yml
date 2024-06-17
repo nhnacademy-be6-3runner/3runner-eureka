@@ -4,7 +4,7 @@ services:
   eureka:
     build: .
     ports:
-      - "8761:8080"
+      - "8761:8761"
     networks:
       - back-network
 
