@@ -2,6 +2,8 @@ server:
   shutdown: graceful
 
 eureka:
+  instance:
+    hostname: 133.186.143.40
   client:
     register-with-eureka: false
     fetch-registry: false
