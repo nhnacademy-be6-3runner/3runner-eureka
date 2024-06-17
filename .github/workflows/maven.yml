@@ -52,7 +52,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           source: "."
-          target: "/home/ubuntu/eureka"
+          target: "/home/nhnacademy/eureka"
 
     - name: Stop existing containers on port 80 and 8080
       uses: appleboy/ssh-action@master
