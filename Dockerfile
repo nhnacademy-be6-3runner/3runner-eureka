@@ -4,7 +4,7 @@ WORKDIR /eureka
 
 COPY target/eureka.jar /eureka/eureka.jar
 
-EXPOSE 8080
+EXPOSE 8761
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
