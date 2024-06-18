@@ -70,5 +70,6 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           cd /home/nhnacademy/eureka
+          sudo docker stop eureka_eureka_1
           sudo docker build -t eureka-image .
           sudo docker run -d -p 8761:8761 --name eureka_eureka_1 eureka-image
