@@ -41,12 +41,12 @@ jobs:
           source: "."
           target: "/home/nhnacademy/eureka"
 
-    - name: Build Docker image
-      run: sudo docker build -t eureka-image .
-
-    - name: Push Docker image to Docker Hub
-      run: |
-        sudo docker-compose push
+#    - name: Build Docker image
+#      run: sudo docker build -t eureka-image .
+#
+#    - name: Push Docker image to Docker Hub
+#      run: |
+#        sudo docker-compose push
 
 #    - name: Deploy to server via SSH
 #      uses: appleboy/ssh-action@master
