@@ -2,7 +2,7 @@ FROM eclipse-temurin:21-jre
 
 WORKDIR /eureka
 
-COPY target/eureka.jar /eureka/eureka.jar
+COPY ./target/eureka.jar /eureka/eureka.jar
 
 EXPOSE 8761
 

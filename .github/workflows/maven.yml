@@ -41,22 +41,34 @@ jobs:
           source: "."
           target: "/home/nhnacademy/eureka"
 
-    - name: Build Docker image with Docker compose
-      run: sudo docker-compose build
+    - name: Build Docker image
+      run: sudo docker build -t eureka-image .
 
     - name: Push Docker image to Docker Hub
       run: |
         sudo docker-compose push
 
+#    - name: Deploy to server via SSH
+#      uses: appleboy/ssh-action@master
+#      with:
+#       host: ${{ secrets.SSH_IP }}
+#       username: ${{ secrets.SSH_ID }}
+#       key: ${{ secrets.SSH_KEY }}
+#       port: ${{ secrets.SSH_PORT }}
+#       script: |
+#         cd /home/nhnacademy/eureka
+#         sudo docker-compose pull
+#         sudo docker-compose down || true
+#         sudo docker-compose up -d
+
     - name: Deploy to server via SSH
       uses: appleboy/ssh-action@master
       with:
-       host: ${{ secrets.SSH_IP }}
-       username: ${{ secrets.SSH_ID }}
-       key: ${{ secrets.SSH_KEY }}
-       port: ${{ secrets.SSH_PORT }}
-       script: |
-         cd /home/nhnacademy/eureka
-         sudo docker-compose pull
-         sudo docker-compose down || true
-         sudo docker-compose up -d
+        host: ${{ secrets.SSH_IP }}
+        username: ${{ secrets.SSH_ID }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd /home/nhnacademy/eureka
+          sudo docker build -t eureka-image .
+          sudo docker run -d -p 8761:8761 --name eureka_eureka_1 eureka-image
