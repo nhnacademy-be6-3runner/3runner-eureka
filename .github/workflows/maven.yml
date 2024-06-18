@@ -25,9 +25,6 @@ jobs:
 #    - name: Run SonarQube
 #      run: mvn clean verify sonar:sonar -Dsonar.projectKey=${{secrets.SONAR_KEY}} -Dsonar.projectName=${{secrets.SONAR_NAME}} -Dsonar.host.url=${{secrets.SONAR_HOST}} -Dsonar.token=${{secrets.SONAR_TOKEN}}
 
-#    - name: Log in to Docker Hub
-#      run: echo "${{ secrets.DOCKER_PASSWORD }}" | sudo docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-
     - name : Delete file in server
       run : sudo rm -rf /home/nhnacademy/eureka
 
@@ -40,7 +37,6 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           source: "."
           target: "/home/nhnacademy/eureka"
-
 
     - name: Deploy to server via SSH
       uses: appleboy/ssh-action@master
