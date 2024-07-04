@@ -1,6 +1,7 @@
 server:
   shutdown: graceful
 
+
 eureka:
   instance:
     hostname: 133.186.143.40
