@@ -47,7 +47,9 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           cd /home/nhnacademy/eureka
-          sudo docker stop eureka || true
-          sudo docker rm eureka || true
           sudo docker build -t eureka-image .
-          sudo docker run -d -p 8761:8761 --name eureka --net back_network eureka-image
+          
+          if sudo docker service ls | grep -q 'eureka'; then
+            sudo docker service rm eureka
+          fi
+          sudo docker service create --name eureka --publish 8761:8761 --network back_network_swarm eureka-image

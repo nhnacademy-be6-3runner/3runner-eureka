@@ -14,5 +14,5 @@ spring:
       name: admin
       password: 1234
   profiles:
-    active: prod
+    active: dev
 
